@@ -1,0 +1,26 @@
+
+containerPort: 8080
+svcPort: 80
+
+image:
+  repository: guoew/or-b 
+  tag: latest
+
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  host: e.agiai.cc
+    # tlsEnabled: true
+    # secretName: e.agiai.cc
+
+probe:
+  enabled: false
+  path: '/'
+  settings:
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 3
+    failureThreshold: 3
+
+
